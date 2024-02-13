@@ -1,42 +1,61 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body{
+  background-color: #333;
+  color: #fff;
+}
+
+.App{
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.taskbg div{
+  display: flex;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.taskNumber{
+  display: flex;
+  color: #999;
+  border: 1px solid #999;
+  height: 26px;
+  width: 26px;
+  border-radius: 50px;
+  text-align: center;
+  align-items: center;
+  font-size: 14px;
+  margin-right: 8px;
+  justify-content: center;  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.taskbg{
+  background-color: #555;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 10px 100px 10px 15px;
+  text-align: left;
+  font-size: 22px;
+  position: relative; 
+
+  
 }
 
-.card {
-  padding: 2em;
+.taskbg .done .taskText{
+  text-decoration: line-through;
+  opacity: 0.3;
+  display: flex;
 }
 
-.read-the-docs {
-  color: #888;
+.iconsWrap{
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%);
+  right: 15px;
+  width: auto;
+  display: inline-block;
+}
+
+.taskbg .iconsWrap span{
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  color: #00ff89;
 }
