@@ -32,7 +32,9 @@ const App = () => {
 
   //Delete task
   const handleDelete = (id) => {
-    //
+    let deleteItem = todos.filter((task) => task.id !== id);
+    console.log(deleteItem);
+    setTodos(deleteItem);
   }
 
   //Mark task as done or completed
@@ -107,7 +109,7 @@ const App = () => {
             <div className='iconsWrap'>
               <span title='Completed/Not Completed'><FaCircleCheck/></span>
               <span title='Edit'><MdEdit /></span>
-              <span title='Delete'><MdDeleteForever /></span>
+              <span title='Delete' onClick={() => handleDelete(task.id)}><MdDeleteForever /></span>
             </div>
             </div>
             </div>
