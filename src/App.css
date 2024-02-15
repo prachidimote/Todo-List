@@ -33,9 +33,7 @@ body{
   padding: 10px 100px 10px 15px;
   text-align: left;
   font-size: 22px;
-  position: relative; 
-
-  
+  position: relative;   
 }
 
 .taskbg .done .taskText{
@@ -59,3 +57,13 @@ body{
   cursor: pointer;
   color: #00ff89;
 }
+
+.taskbg .iconsWrap span:hover{
+  color: yellow;
+}
+
+/* button{
+  height: 60px;
+  width: 60px;
+  display: flex;
+} */
