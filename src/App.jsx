@@ -38,8 +38,14 @@ const App = () => {
   }
 
   //Mark task as done or completed
-  const handleMark = (id) => {
-    //
+  const handleMarkDone = (id) => {
+    let newTask = todos.map((task) => {
+      if(task.id === id){
+        return({...task, status: !task.status})
+      }
+      return task;
+    })
+    setTodos(newTask);
   }
 
   //Change task for update
@@ -107,7 +113,10 @@ const App = () => {
             <span className='taskText'>{task.title}</span>
             </div>
             <div className='iconsWrap'>
-              <span title='Completed/Not Completed'><FaCircleCheck/></span>
+              <span 
+              onClick={() => handleMarkDone(task.id)}
+              title='Completed/Not Completed'
+              ><FaCircleCheck/></span>
               <span title='Edit'><MdEdit /></span>
               <span title='Delete' onClick={() => handleDelete(task.id)}><MdDeleteForever /></span>
             </div>
