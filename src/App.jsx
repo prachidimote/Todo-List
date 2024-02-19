@@ -1,16 +1,20 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddTaskForm from './components/AddTaskForm';
 import UpdateForm from './components/UpdateForm';
 import Todo from './components/Todo';
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  const [todos, setTodos] = useState(initialTodos);
   //state to add new tasks
   const [newTask, setNewTask] = useState('');
   
   //state for editing the data
   const [updateData, setUpdateData] = useState('');
-
+  const saveTodosToLocalStorage = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+  
   //Add task
   const handleAddTask = () => {
     if(newTask){
@@ -18,6 +22,7 @@ const App = () => {
       let newEntry = {id: num, title: newTask, status: false};
       setTodos([...todos, newEntry]);
       setNewTask('');
+      localStorage.setItem('todos', JSON.stringify([...todos, newEntry]));
 
     }
   }
@@ -68,6 +73,11 @@ const App = () => {
   console.log(add);
   setNewTask(event.target.value);
   }
+
+  useEffect(() => {
+    saveTodosToLocalStorage(todos);
+  }, [todos]);
+
 
   return (
   <div className='App'>
